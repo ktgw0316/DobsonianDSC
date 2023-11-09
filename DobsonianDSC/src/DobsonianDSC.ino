@@ -55,17 +55,21 @@
 #error Bluetooth is not enabled! Please run `make menuconfig` to and enable it
 #endif
 
-#define MAX_SRV_CLIENTS         3   // How many clients can connect simultaneously to the DSC.
+
+// Important: Not all encoders can be connected directly to the pins of the
+// ESP32, read more about this in the project's github page
 
 // Choose which pins of the ESP32 to use for the Azimuth Encoder
 ESP32Encoder AZencoder;
-#define PIN_AZ_A 18 // Important: Not all encoders can be connected directly to the pins of the ESP32, read more about this in the project's github page
-#define PIN_AZ_B 19
+#define PIN_AZ_A 33
+#define PIN_AZ_B 23
 
 // Choose which pins of the ESP32 to use for the Altitude Encoder
 ESP32Encoder ALTencoder;
-#define PIN_ALT_A 25
-#define PIN_ALT_B 26
+#define PIN_ALT_A 19
+#define PIN_ALT_B 22
+
+#define MAX_SRV_CLIENTS 1
 
 BluetoothSerial SerialBT;
 
@@ -334,7 +338,7 @@ void setup() {
   }
 }
 
-void loop() 
+void loop()
 {
   server.handleClient();
   attendBTRequests();

@@ -8,10 +8,10 @@
   a free definable number of configuration parameters. The submitted data will bestored in the SPIFFS
   The library works with ESP8266 and ESP32
 
-  It has been modified by Vladimir Atehortúa to customize the HTML styles for 
+  It has been modified by Vladimir Atehortúa to customize the HTML styles for
   astronomy/night use (dark background with red colors) for the Digital Setting Circles project
   which is released under the compatible GPLv3
-  
+
   This program is free software: you can redistribute it and/or modify
   it under the terms of the version 3 GNU General Public License as
   published by the Free Software Foundation.
@@ -166,7 +166,7 @@ void WebConfig::addDescription(String parameter){
         if (obj.containsKey("name")) strlcpy(_description[_count].name,obj["name"],NAMELENGTH);
         if (obj.containsKey("label"))strlcpy(_description[_count].label,obj["label"],LABELLENGTH);
         if (obj.containsKey("type")) {
-          if (obj["type"].is<char *>()) {
+          if (obj["type"].is<const char *>()) {
             uint8_t t = 0;
             strlcpy(tmp,obj["type"],30);
             while ((t<INPUTTYPES) && (strcmp(tmp,inputtypes[t])!=0)) t++;
