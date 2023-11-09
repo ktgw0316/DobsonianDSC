@@ -59,13 +59,13 @@
 
 // Choose which pins of the ESP32 to use for the Azimuth Encoder
 ESP32Encoder AZencoder;
-#define PIN_AZ_A 18 // Important: Not all encoders can be connected directly to the pins of the ESP32, read more about this in the project's github page
-#define PIN_AZ_B 19
+#define PIN_AZ_A 13 // Important: Not all encoders can be connected directly to the pins of the ESP32, read more about this in the project's github page
+#define PIN_AZ_B 15
 
 // Choose which pins of the ESP32 to use for the Altitude Encoder
 ESP32Encoder ALTencoder;
-#define PIN_ALT_A 25
-#define PIN_ALT_B 26
+#define PIN_ALT_A 12
+#define PIN_ALT_B 14
 
 BluetoothSerial SerialBT;
 
@@ -334,7 +334,7 @@ void setup() {
   }
 }
 
-void loop() 
+void loop()
 {
   server.handleClient();
   attendBTRequests();
